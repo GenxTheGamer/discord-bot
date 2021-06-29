@@ -4,7 +4,8 @@ const Discord = require("discord.js");
 
 const client = new Discord.Client();
 // const lyricsFinder = require("lyrics-finder");
-const prefix = "wb";
+// const prefix = "wb";
+const prefix = "==";
 const fs = require("fs");
 
 client.commands = new Discord.Collection();
@@ -40,6 +41,12 @@ client.on("message", (message) => {
     client.commands.get("rules").execute(message, args, Discord);
   } else if (command === "invite") {
     client.commands.get("invite").execute(message, args, Discord);
+  } else if (command === "clear") {
+    client.commands.get("clear").execute(message, args);
+  } else if (command === "afk") {
+    client.commands.get("afk").execute(message, args);
+  } else if (command === "help") {
+    client.commands.get("help").execute(message, client, Discord);
   }
 });
 
